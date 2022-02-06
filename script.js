@@ -1,16 +1,13 @@
-var gridContainer = document.querySelector('#container')
+const container = document.querySelector('#container')
 
-function createGrid(size){
-    for (var rows = 0; rows < size; rows++){
-        for(var columns = 0; columns < size; columns++){
-            var grid = document.createElement('div');
-            grid.classList.add("grid");
-            grid.textContent = "test"
-            gridContainer.append(grid);
-        }
+function createGrid(rows, cols){
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
 
-    }
+    for (i = 0; i < (rows* cols); i++){
+        let pixel = document.createElement("div");
 
-}
-
-createGrid(16);
+        container.appendChild(pixel).className = "grid-item";
+    };
+};
+createGrid(2,2);
