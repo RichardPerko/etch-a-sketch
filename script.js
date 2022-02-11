@@ -14,10 +14,24 @@ const eraser = document.querySelector('#eraser');
 eraser.onclick = () => colorChanger('eraser')
 
 const blackBtn = document.querySelector('#blackBtn');
-blackBtn.onclick = () => colorChanger('black')
+blackBtn.onclick = () => colorChanger('black');
 
-//default values that 
-createGrid(16, 16); 
+const slider = document.querySelector('.slider');
+
+const buttons = document.getElementsByTagName("button");
+for (const button of buttons){
+    button.addEventListener("click", createRipple);
+}
+//slider function that creates grid
+slider.oninput = function(){
+    resetGrid();
+    createGrid(this.value, this.value);
+}
+//default values that create the grid and set default color to black
+resetGrid();
+let rows = 16;
+let cols = 16
+createGrid(rows, cols); 
 let color = 'black';
 
 //creates grid of divs based on what the resizeGrid function returns
@@ -76,13 +90,13 @@ function colorSelector(){
 
 //when called will prompt the user for rows and columns to resize grid
 function resizeGrid(){
-    let rows = prompt("Enter rows");
-    let cols = prompt("Enter columns");
-    if (rows > 100){
-        rows = 100;
-    } if (cols > 100){
-        cols = 100;
-    } if (rows && cols > 0){
+    let size = prompt("Enter size (Grid will be size * size)");
+    if (size > 100){
+        size = 100;
+    }
+    if (size > 0){
+        let rows = size;
+        let cols = size;
         resetGrid();
         createGrid(rows, cols)
     }
@@ -95,3 +109,24 @@ function resetGrid(){
         cell.style.backgroundColor = "White";  
     })
 }
+// create ripple function thanks to css-tricks
+function createRipple(event) {
+    const button = event.currentTarget;
+  
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+  
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add("ripple");
+  
+    const ripple = button.getElementsByClassName("ripple")[0];
+  
+    if (ripple) {
+      ripple.remove();
+    }
+  
+    button.appendChild(circle);
+  }

@@ -9,16 +9,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Etch-A-Sketch</h1>
+    <div class="header">
+        <h1 class="left">Etch-A-Sketch</h1>
+        <ul class="right">
+            <li><a href="https://twitter.com/CarlPerko" target="_blank"><input type="image" src="img/2021 Twitter logo - blue.png" height="32px"alt="twitter logo"></a></li>
+            <li><a href="https://github.com/RichardPerko/etch-a-sketch" target="_blank"><input type="image" src="img/GitHub-Mark-64px.png" height="32px" alt="github logo"></a></li>
+            <li><a href="https://www.theodinproject.com/" target="_blank"><input type="image" src="img/OdinProject.svg" height="32px"></a></li>
+        </ul>
+    </div>
     <div id="wrapper">
+        <ul id="buttons">
+            <button id=blackBtn>Black</button>
+            <button id="rgbBtn">RGB</button>
+            <button id=eraser>Eraser</button>
+            <button id="resetBtn">Reset</button>
+            <button id="sizeBtn">Size</button>
+            <input type="range" min="2" max="100" value="16" class="slider" id="myRange">
+        </ul>
       <div id="container"></div>
     </div>
-    <ul id="buttons">
-        <button id=blackBtn>Black</button>
-        <button id="rgbBtn">RGB</button>
-        <button id=eraser>Eraser</button>
-        <button id="resetBtn">Reset</button>
-        <button id="sizeBtn">Size</button>
-    </ul>
+    <div id="footer">
+        <p id="name">Created by Richard Perko 2022</p>
+    </div>
 </body>
 </html>
