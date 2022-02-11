@@ -12,8 +12,7 @@
     background-color: lightblue;
     display:flex;
     justify-content: center;
-    border: lightpink;
-    border-style: soli;
+    min-height:100vh - 60px;
 }
 
 #container{
@@ -105,8 +104,16 @@ span.ripple{
     font-size: 32px;
     font-weight: 900;
     -webkit-text-stroke: 1px black;
-    
 }
+
+#footer{
+    display: flex;
+    background:grey;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
 /* w3 schools tutorial for how to create a range slider! */
 .slider {
     -webkit-appearance: none;
@@ -143,12 +150,4 @@ span.ripple{
     background: grey;
     cursor: pointer;
     border-radius: 12px;
-}
-
-#footer{
-    display: flex;
-    background:grey;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
 }
